@@ -1,6 +1,3 @@
-n = int(input())
-
-
 def vps_test(line: str):
     flg = 0
     for char in line:
@@ -10,9 +7,9 @@ def vps_test(line: str):
             flg -= 1
         if flg < 0:
             break
-    print(flg)
     print('YES') if not flg else print('NO')
 
+n = int(input())
 
 for _ in range(n):
     line = input()

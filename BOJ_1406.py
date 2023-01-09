@@ -19,6 +19,3 @@ for _ in range(n):
 
 right.reverse()
 print(''.join(left) + ''.join(right))
-
-
-

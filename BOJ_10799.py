@@ -1,51 +1,44 @@
 import sys
 
-pattern = sys.stdin.readline().strip()
+# 시간 초과 실패 ㅜ
+# O(n^2) 으로 풀면 안되는 문제 ㅜ
 
-# stick_list = []
+# pattern = (sys.stdin.readline().strip()).replace('()', 'r')
+# result = 0
 
 # for i, char in enumerate(pattern):
 #     open_cnt = 0
+#     r_cnt = 0
 #     if char == '(':
-#         for j, c in enumerate(pattern[i+1:]):
+#         for c in pattern[i+1:]:
 #             if c == '(':
 #                 open_cnt += 1
+#             elif c == 'r':
+#                     r_cnt += 1
+#             elif c == ')' and open_cnt != 0:
+#                 open_cnt -= 1
 #             else:
-#                 if open_cnt == 0 and j == 0:
-#                     break
-#                 elif open_cnt == 0:
-#                     stick_list.append([i, j+1])
-#                     break
-#                 else:
-#                     open_cnt -= 1
+#                 break
+#         if r_cnt:
+#             result += r_cnt + 1
 #     else:
 #         continue
 
-# result = 0
-# pattern += '-'
-# for stick in stick_list:
-#     result += len(pattern[stick[0]: stick[1]+1].split('()')) + 1
-
 # print(result)
-                    
 
-pattern = pattern.replace('()', 'r')
+pattern = sys.stdin.readline().strip()
 result = 0
+open = []
+
 for i, char in enumerate(pattern):
-    open_cnt = 0
-    r_cnt = 0
-    if char == '(':
-        for c in pattern[i+1:]:
-            if c == '(':
-                open_cnt += 1
-            elif c == 'r':
-                    r_cnt += 1
-            elif c == ')' and open_cnt != 0:
-                open_cnt -= 1
-            else:
-                break
-        if r_cnt:
-            result += r_cnt + 1
+    if char == '(': 
+        open.append('(')
     else:
-        continue
+        if pattern[i-1] == '(': 
+            open.pop()
+            result += len(open)
+        else:
+            open.pop() 
+            result += 1 
+
 print(result)

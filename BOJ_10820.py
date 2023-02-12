@@ -4,8 +4,7 @@ while True:
 
     lower_cnt, upper_cnt, num_cnt, space_cnt = 0, 0, 0, 0
 
-    S = sys.stdin.readline().strip()
-    print(S)
+    S = sys.stdin.readline().strip('\n')
 
     if not S:
         break

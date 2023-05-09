@@ -9,6 +9,3 @@ for i in range(1, n + 1):
             break
         s.append(dp[i - j])
     dp[i] = min(s) + 1
-
-print(dp)
-print(dp[n])

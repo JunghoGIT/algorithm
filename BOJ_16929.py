@@ -31,6 +31,6 @@ arr = [list(input().rstrip()) for _ in range(N)]
 for j in range(N):
     for k in range(M):
         if dfs(k, j): 
-            print('YES')
+            print('Yes')
             exit()
-print('NO')
+print('No')
